@@ -1,16 +1,17 @@
 import { useGlobalContext } from './context';
+import { Theme, Button } from 'react-daisyui';
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
 
 const ThemeToggle = () => {
-  const { isDarkTheme, toggleDarkTheme } = useGlobalContext();
+  const { theme, toggleTheme } = useGlobalContext();
 
   return (
     <section className="toggle-container">
-      <button className="dark-toggle" onClick={toggleDarkTheme}>
-        {isDarkTheme ? (
-          <BsFillMoonFill className="toggle-icon" />
+      <button className="dark-toggle" onClick={toggleTheme}>
+        {theme === 'dark' ? (
+          <BsFillSunFill className="text-yellow-400" />
         ) : (
-          <BsFillSunFill className="toggle-icon" />
+          <BsFillMoonFill className="text-gray-500" />
         )}
       </button>
     </section>
